@@ -1,0 +1,14 @@
+{
+  "name": "node-pusher",
+  "version": "0.0.1",
+  "private": true,
+  "author": "lvjian",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+  	"socket.io": "*",
+    "express": "3.0.0",
+    "jade": "*"
+  }
+}
