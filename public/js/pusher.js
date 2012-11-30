@@ -10,7 +10,7 @@ Pusher.prototype.unsub = function(room) {
 	this.socket.emit('unsub', {topic: room});
 };
 
-Pusher.prototype.push = function(to, event, json) {
+Pusher.prototype.pub = function(to, event, json) {
 	var params = {
 		to: to,
 		event: event,

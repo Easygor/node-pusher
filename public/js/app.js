@@ -16,7 +16,7 @@ $(function() {
 
 	$('#btnSent').click(function() {
 		var text = $('#message').val();
-		pusher.push(room, 'news', {sender: 'lvjian', msg: text});
+		pusher.pub(room, 'news', {sender: 'lvjian', msg: text});
 
 		$('#message').val('');
 	});
