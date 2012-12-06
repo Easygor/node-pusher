@@ -7,10 +7,14 @@ var express = require('express')
 , routes = require('./routes')
 , http = require('http')
 , path = require('path')
-, socket_io = require('socket.io');
+, http_io = require('./core/http.io.js')
+, pusher = require('./core/pusher')
+, logger = require('./core/logger').logger;
 
+logger.info('initialize express http server ...');
 var app = express();
 
+logger.info('configure express...');
 app.configure(function(){
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
@@ -29,65 +33,19 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
-console.log("start http & socket.io server...");
+logger.info("start http & socket.io server...");
+logger.info('create http server on express...');
 var server = http.createServer(app);
-var io = socket_io.listen(server);
+logger.info('socket.io listening http server...');
 
-io.configure(function() {
-	io.set('transports', ['websocket', 'flashsocket', 'xhr-polling']);
-});
+var io = http_io.listen(server);
+logger.info("start socket.io server success!");
 
-io.configure('development', function() {
-	io.set('transport', ['websocket', 'xhr-polling']);
-	io.enable('log');
-});
-
+logger.info('start listening http ...');
 server.listen(app.get('port'), function(){
-	console.log("Express server listening on port " + app.get('port'));
+	logger.info('start http server success!');
+	logger.info("Express server listening on port " + app.get('port'));
 }); 
 
-console.log("listening socket.io event...");
-io.sockets.on('connection', function(socket) {
-	console.log('some on connect...');
-
-	socket.on('sub', function(data) {
-		console.log('a client=' + socket.id + ', join the a room=' + data.topic);
-		socket.join(data.topic)
-
-	});
-
-	socket.on('unsub', function(data) {
-		socket.leave(data.topic);
-	});
-
-	socket.on('push', function(data, fn) {
-		if(typeof data.to === 'undefined') {
-			console.log('data.to is undefined, you must set dest');
-			return;
-		}
-
-		if(typeof data.event === 'undefined') {
-			console.log('data.event is undefined, you must set a event');
-			return;
-		}
-
-		console.log('--room:' + data.to);
-		console.log('--event:' + data.event);
-		console.log('--bodyType:' + data.bodyType);
-		console.log('--body:' + data.body);
-	
-		try {	
-			var json = JSON.parse(data.body);
-			io.sockets.in(data.to).emit(data.event, json);
-		} catch(e) {
-			console.log(e);
-			io.sockets.in(data.to).emit(data.event, data.body);
-		}
-
-	});
-
-	socket.on('disconnect', function() {
-		console.log('disconnect...');
-	});
-});
-
+logger.info("listening socket.io event...");
+pusher.start(io);
