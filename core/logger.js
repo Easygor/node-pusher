@@ -1,11 +1,24 @@
+var path = require('path');
+var fs = require('fs');
 var log4js = require('log4js');
+
+var logDir = path.join(__dirname, "..", "logs"); 
+console.log('log dir:' + logDir);
+
+if(!fs.existsSync(logDir)) {
+	console.log('The log dir is not existed! mkdir...');
+	fs.mkdirSync(logDir);
+}
+
+var logFile = path.join(logDir, "out.log");
+console.info('log file path:' + logFile);
 
 var options = {
 	appenders: [{
 		type : 'console'
 	}, {
 		type: 'file',
-		filename: './logs/out.log',
+		filename: logFile,
 		maxLogSize: 1024 * 20,
 		backup: 5
 	}]
