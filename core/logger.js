@@ -2,10 +2,10 @@ var path = require('path');
 var fs = require('fs');
 var log4js = require('log4js');
 
-var logDir = path.join(__dirname, "..", "logs"); 
+var logDir = path.join(__dirname, '..', 'logs');
 console.log('log dir:' + logDir);
 
-if(!fs.existsSync(logDir)) {
+if (!fs.existsSync(logDir)) {
 	console.log('The log dir is not existed! mkdir...');
 	fs.mkdirSync(logDir);
 }
@@ -25,7 +25,7 @@ var options = {
 };
 
 // debug, info, warn, error
-var level = 'info'
+var level = 'info';
 
 log4js.configure(options);
 
