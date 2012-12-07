@@ -1,13 +1,18 @@
 doctype 5
 html
 	head
-		title= title
+		title Node Pusher
 		link(rel='stylesheet', href='/css/style.css')
 		script(type="text/javascript", src="/socket.io/socket.io.js")
 		script(type="text/javascript", src="/js/jquery-1.8.3.min.js")
 		script(type='text/javascript', src="/js/pusher.js")
 		script(type="text/javascript", src="/js/app.js")
 	body
-		h1= title
-		p A web real-time push server.
-		block content
+		.container
+			h1.header
+				img(src="/images/logo.png", width="48", height="48", align="absmiddle")
+				&nbsp;Node Pusher 
+			quate.sub-header A web real-time push server. version: 0.0.1
+			
+			.main
+				block content
