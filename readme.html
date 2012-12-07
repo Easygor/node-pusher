@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+</head>
+<body>
+<h1 id="node-pusher">Node-Pusher</h1>
+<p>面向浏览器端的实时推送服务器。</p>
+<h2 id="&#24555;&#36895;&#24320;&#22987;">快速开始</h2>
+<h3 id="&#23433;&#35013;node.js&#29615;&#22659;">1.安装<a href="http://nodejs.org/" title="Node.js Home Page">node.js</a>环境</h3>
+<p>下载安装<a href="http://nodejs.org/" title="Node.js Home Page">node.js</a><br /><a href="http://nodejs.org/"><code class="url">http://nodejs.org/</code></a></p>
+<p>安装好后检测<a href="http://nodejs.org/" title="Node.js Home Page">node.js</a>版本:</p>
+<pre><code>node --version
+npm -v
+</code></pre>
+<p>node.js&amp;npm版本:</p>
+<ul>
+<li>node: &gt;= 0.8.11</li>
+<li>npm: &gt;= 1.1.62</li>
+</ul>
+<h3 id="&#24320;&#21551;node-pusher&#26381;&#21153;">2.开启node-pusher服务</h3>
+<p>使用命令行进入node-pusher文件夹, 使用如下指令开启服务:</p>
+<pre><code>npm start
+</code></pre>
+<p>访问 <http://localhost:3000"> 查看服务是否成功开启.</p>
+<h3 id="&#25552;&#21462;&#26085;&#24535;">3.提取日志</h3>
+<p>日志存放在 node-pusher/logs 目录下， 直接copy即可。</p>
+<h2 id="&#24320;&#21457;&#20154;&#21592;&#20351;&#29992;">开发人员使用</h2>
+<h3 id="&#27983;&#35272;&#22120;&#23458;&#25143;&#31471;">浏览器客户端</h3>
+<p><strong>安装</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://node-pusher-host:3000/socket.io/socket.io.js&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://node-pusher-host:3000/js/pusher.js&quot; /&gt;
+</code></pre>
+<p><strong>快速开始</strong></p>
+<p>查看node-pusher/public/js/app.js文件</p>
+<h3 id="java&#23458;&#25143;&#31471;---pusher4j">java客户端 - pusher4j</h3>
+<p>详情查看pusher4j项目文档</p>
+</body>
+</html>
