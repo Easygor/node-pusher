@@ -1,5 +1,5 @@
 $(function() {
-	var url = 'http://192.168.1.6:3000/';
+	var url = 'http://localhost:3000/';
 	var room = '/column';
 
 	var pusher = new Pusher(url);
