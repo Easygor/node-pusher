@@ -24,6 +24,8 @@ node.js&npm版本:
 
 使用命令行进入node-pusher文件夹, 使用如下指令开启服务:	
 
+	cd node-pusher
+	npm install
 	npm start
 
 访问 <http://localhost:3000"> 查看服务是否成功开启.	
