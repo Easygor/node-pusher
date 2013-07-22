@@ -41,7 +41,8 @@ exports.start = function(io) {
 
 			logger.info('parsing [data.body] to json ...');
 			try {	
-				var json = JSON.parse(data.body);
+				logger.info('the [data.body] data type: ' + typeof data.body);
+				var json = (typeof data.body == 'object') ? data.body : JSON.parse(data.body);
 
 				logger.info('parse successed, push it to client ...');
 				io.sockets.in(data.to).emit(data.event, json);
