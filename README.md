@@ -49,9 +49,8 @@ __快速开始__
 
 查看node-pusher/public/js/app.js文件	
 
-###java客户端 - pusher4j
+###客户端 
 
-详情查看pusher4j项目文档
-
-
+* Java: [pusher4j](https://github.com/lvjian700/pusher4j)
+* iOS: [pusher4cocoa](https://github.com/lvjian700/pusher4cocoa), 现在仅展现如何使用，未做封装。    
 [node]: http://nodejs.org/ "Node.js Home Page"
